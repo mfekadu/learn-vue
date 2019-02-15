@@ -25,14 +25,22 @@
         color: hsl(0, 0%, 100%);
       }
 
-      p {
+      input {
         text-align: center;
+        font: inherit;
+        max-width:500px;
+        margin: auto;
       }
+
+      p { text-align: center; }
     </style>
   </head>
   <body>
     <div id="app">
-      <p v-html="message"></p>
+      <div>
+        <input type="text" v-model="message2"></input>
+      </div>
+      <p v-html="message1.slice(0, 7) + message2 + '!' + '<br>' + message1.slice(13) + '<br>'"></p>
     </div>
 
     <script type="text/javascript">
@@ -103,7 +111,8 @@
       var app = new Vue({
         el: '#app',
         data: {
-          message: "Hello, world! " + getRandomEmoji() + "<br><em>italics</em>"
+          message1: "Hello, world!  " + getRandomEmoji() + " <br><em>italics</em>",
+          message2: "world"
         }
       });
     </script>
